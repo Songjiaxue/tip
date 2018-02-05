@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./mobiscroll/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+
+<body>
+    <a id="start_time" class="btn btn-info" href="javascript: void(0)">请选择</div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./mobiscroll/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+    <script>
+        $('#start_time').mobiscroll().range({
+            theme: 'android-holo-light',                                     // Specify theme like: theme: 'ios' or omit setting to use default
+            lang: 'zh',                                   // Specify language like: lang: 'pl' or omit setting to use default
+            display: 'bottom',                                 // Specify display mode like: display: 'bottom' or omit setting to use default
+//            mode: $('#mode').val(),                                       // More info about mode: https://docs.mobiscroll.com/3-0-0_beta2/range#!opt-mode
+            defaultValue: [new Date(), new Date()]  // More info about defaultValue: https://docs.mobiscroll.com/3-0-0_beta2/range#!opt-defaultValue
+        });
+    </script>
+</body>
+
+</html>

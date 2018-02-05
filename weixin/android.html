@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 安卓键盘输入时引起的页面问题
+        var h = $(window).height();
+        $(window).resize(function() {
+            if ($(window).height() < h) {
+                //存在键盘输入时
+                $('.no-info').hide();
+            }
+            if ($(window).height() >= h) {
+                //键盘输入消失时
+                $('.no-info').show();
+            }
+        });
+
+        // 页面刷新
+        $(function() {
+            var isPageHide = false;
+            window.addEventListener('pageshow', function() {
+                if (isPageHide) {
+                    window.location.reload();
+                }
+            });
+            window.addEventListener('pagehide', function() {
+                isPageHide = true;
+            });
+        })
+    </script>
+</body>
+
+</html>

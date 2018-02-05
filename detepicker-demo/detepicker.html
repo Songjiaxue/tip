@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./datepicker/datepicker.css">
+</head>
+
+<body>
+    <div class="app">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="start_time" class="col-sm-3 control-label">开始时间</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control datepicker" id="start_time" placeholder="开始时间">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end_time" class="col-sm-3 control-label">结束时间</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control datepicker" id="end_time" placeholder="结束时间">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="./datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="./datepicker/datepicker.extend.js"></script>
+    <script>
+        $('.datepicker').datepicker({
+            language: "zh-CN",
+            autoclose: true,
+            // startDate: '+0d',
+            // endDate: '+0d',
+            format: "yyyy-mm-dd"
+        });
+        //有效期（时间范围）
+        $('#end_time').datepicker().on('changeDate', function(e) {
+            var date = e.date;
+            $('#start_time').datepicker('setEndDate', date);
+        });
+        $('#start_time').datepicker().on('changeDate', function(e) {
+            var date = e.date;
+            $('#end_time').datepicker('setStartDate', date);
+        });
+    </script>
+</body>
+
+</html>
